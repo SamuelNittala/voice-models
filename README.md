@@ -48,6 +48,19 @@ on every request. The token is made on first start in `speech/token` (mode 0600)
 
 It runs in the foreground; Ctrl+C stops the front and both workers.
 
+## Start at boot (NixOS)
+
+`nixos/voice-models.nix` is a module that runs the service as a system service. It starts after tailscale and
+restarts on failure.
+
+```nix
+imports = [ /path/to/voice-models/nixos/voice-models.nix ];
+services.voice-models = { enable = true; user = "alice"; };  # dir defaults to /home/alice/voice-models
+```
+
+Then `sudo nixos-rebuild switch`. Check with `systemctl status voice-models` and `journalctl -u voice-models -f`.
+It needs `speech/local.env`, the models downloaded once, and nix-ld enabled.
+
 ## Endpoints
 
 - `GET /health`: each worker's state (starting, ready, busy, restarting or down).

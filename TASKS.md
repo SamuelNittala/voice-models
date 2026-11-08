@@ -18,6 +18,8 @@ machine-specific addresses or host names; work-specific repo names replaced with
 
 ## Completed
 
+- [x] NixOS module nixos/voice-models.nix (system service, after tailscale) and README section; not built on a NixOS machine
+
 - [x] Copy source only from the host (speech/, bench scripts, refs example, run.sh, env.sh, pyproject.toml, uv.lock)
 - [x] Tests first for the two settings (bind validation takes the configured address, allowlist uses configured
       clients, refusal when unset or invalid); seen failing (5 of 31)
