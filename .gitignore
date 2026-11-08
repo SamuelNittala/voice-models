@@ -1,0 +1,20 @@
+# Secrets and local settings
+token
+speech/local.env
+
+# Environments, caches, toolchains (see env.sh)
+.venv/
+cache/
+python/
+nix/
+tmp/
+uv-tools/
+__pycache__/
+*.pyc
+
+# Audio and results
+*.wav
+*.mp3
+bench/out/
+recordings/*
+!recordings/refs.tsv.example
